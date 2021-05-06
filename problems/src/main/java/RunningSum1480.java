@@ -30,7 +30,19 @@
 
 public class RunningSum1480 {
     public static void main(String[] args) {
-
+        RunningSum1480 runningSum = new RunningSum1480();
+        int nums[] = {3, 1, 2, 10, 1};
+        int outputRunningSum[] = runningSum.runningSumApproach1(nums);
+        System.out.println("Using Approach 1");
+        for (int i = 0; i < outputRunningSum.length; i++) {
+            System.out.print(outputRunningSum[i] + " ");
+        }
+        System.out.println();
+        runningSum.runningSumApproach2(nums);
+        System.out.println("Using Approach 2");
+        for (int i = 0; i < nums.length; i++) {
+            System.out.print(nums[i] + " ");
+        }
     }
 
     /**
