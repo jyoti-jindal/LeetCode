@@ -51,7 +51,7 @@ public class RunningSum1480 {
     }
 
     /**
-     * Approach1: Use Input Array for Output
+     * Approach2: Use Input Array for Output
      * Time Complexity: O(n)
      * Space Complexity: O(1)
      *
