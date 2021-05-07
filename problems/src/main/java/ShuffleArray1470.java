@@ -29,7 +29,26 @@
  */
 public class ShuffleArray1470 {
     public static void main(String[] args) {
-
+        ShuffleArray1470 shuffleArray = new ShuffleArray1470();
+        int[] nums = {1, 2, 3, 4, 4, 3, 2, 1};
+        int n = 4;
+        System.out.println("Using Approach 1");
+        int[] shuffledArray = shuffleArray.shuffleApproach1(nums, n);
+        for(int i=0; i<shuffledArray.length; i++) {
+            System.out.print(shuffledArray[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Using Approach 2");
+        shuffledArray = shuffleArray.shuffleApproach2(nums, n);
+        for(int i=0; i<shuffledArray.length; i++) {
+            System.out.print(shuffledArray[i] + " ");
+        }
+        System.out.println();
+        System.out.println("Using Approach 3");
+        shuffledArray = shuffleArray.shuffleApproach3(nums, n);
+        for(int i=0; i<shuffledArray.length; i++) {
+            System.out.print(shuffledArray[i] + " ");
+        }
     }
 
     /**
