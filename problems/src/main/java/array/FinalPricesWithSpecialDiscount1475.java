@@ -1,3 +1,5 @@
+package array;
+
 public class FinalPricesWithSpecialDiscount1475 {
     public static void main(String[] args) {
         FinalPricesWithSpecialDiscount1475 finalPricesWithSpecialDiscount = new FinalPricesWithSpecialDiscount1475();

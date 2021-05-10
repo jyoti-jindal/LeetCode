@@ -1,4 +1,4 @@
-/**
+package array; /**
  * <a href="https://leetcode.com/problems/find-n-unique-integers-sum-up-to-zero/">Find N Unique Integers Sum up to Zero</a>
  * <b>Given an integer n, return any array containing n unique integers such that they add up to 0.</b>
  * <p>

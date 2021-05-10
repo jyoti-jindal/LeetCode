@@ -1,4 +1,4 @@
-/**
+package array; /**
  * <a href="https://leetcode.com/problems/kids-with-the-greatest-number-of-candies/">Kids With the Greatest Number of Candies</a>
  * <b>Given the array candies and the integer extraCandies, where candies[i] represents the number of candies that the ith kid has.
  * <p>

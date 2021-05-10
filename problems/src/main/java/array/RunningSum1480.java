@@ -1,3 +1,5 @@
+package array;
+
 /**
  * <a href="https://leetcode.com/problems/maximum-product-of-two-elements-in-an-array">Maximum Product of Two Elements in an Array</a>
  * <b>Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]…nums[i]).
