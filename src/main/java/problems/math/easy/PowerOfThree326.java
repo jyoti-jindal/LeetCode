@@ -43,19 +43,24 @@ public class PowerOfThree326 {
         System.out.println(isPowerOfThreeApproach3(9));
     }
 
+    // For Solutions: https://leetcode.com/problems/power-of-three/solution/
+
     /**
-     * TC: O(1)
+     * This solution is problematic because we start using doubles,
+     * which means we are subject to precision errors.
+     * This means, we should never use == when comparing double.
+     * That is because the result of Math.log10(n) / Math.log10(3) could be 5.0000001 or 4.9999999.
+     * This effect can be observed by using the function Math.log() instead of Math.log10().
+     * <p>
+     * TC: Unknown The expensive operation here is Math.log, which upper bounds the time complexity of our algorithm.
+     * The implementation is dependent on the language we are using and the compiler [3]
      * SC: O(1)
      *
      * @param n
      * @return
      */
     public static boolean isPowerOfThreeApproach1(int n) {
-        double d = Math.log(n) / Math.log(3);
-        int i = (int) d;
-        //System.out.println(d + " " + i + " ");
-        if (i == d) return true;
-        return false;
+        return (Math.log10(n) / Math.log10(3)) % 1 == 0;
     }
 
     /**
@@ -92,5 +97,32 @@ public class PowerOfThree326 {
             n = n / 3;
         }
         return true;
+    }
+
+    /**
+     * Time complexity : O(log(n) base 3).
+     * Space complexity : O(1)
+     *
+     * @param n
+     * @return
+     */
+    public boolean isPowerOfThreeApproach4(int n) {
+        if (n <= 0) return false;
+        while (n % 3 == 0) {
+            n = n / 3;
+        }
+        return n == 1;
+    }
+
+    /**
+     * See Approach 4: Integer Limitations on https://leetcode.com/problems/power-of-three/solution/
+     * Time complexity : O(1)O(1). We are only doing one operation.
+     * Space complexity : O(1)O(1). We are not using any additional memory.
+     *
+     * @param n
+     * @return
+     */
+    public boolean isPowerOfThree(int n) {
+        return n > 0 && 1162261467 % n == 0;
     }
 }
