@@ -1,4 +1,4 @@
-package problems.array;
+package problems.array.easy;
 
 /**
  * <a href="https://leetcode.com/problems/find-the-duplicate-number/">Find the Duplicate Number</a>
@@ -42,6 +42,7 @@ package problems.array;
  * Can you solve the problem with runtime complexity less than O(n2)?
  */
 
+import java.util.Arrays;
 import java.util.HashMap;
 
 public class FindDuplicate287 {
@@ -49,9 +50,10 @@ public class FindDuplicate287 {
         FindDuplicate287 findDuplicate = new FindDuplicate287();
         System.out.println(findDuplicate.findDuplicateApproach4(new int[]{1, 3, 4, 2, 2}));
     }
+// For more Solutions: Check https://leetcode.com/problems/find-the-duplicate-number/solution/
 
     /**
-     * Approach 1: Using map
+     * Approach 1: Using map/set
      * Time Complexity: O(n)
      * Space Complexity: O(n)
      *
@@ -70,7 +72,7 @@ public class FindDuplicate287 {
     }
 
     /**
-     * Approach 2: Using Count Sort
+     * Approach 2: Using Count Array
      * Time Complexity: O(n)
      * Space Complexity: O(n)
      *
@@ -92,7 +94,7 @@ public class FindDuplicate287 {
     }
 
     /**
-     * Approach 3: If Array is immutable, mark the visiting number as negative
+     * Approach 3: If Array is mutable, mark the visiting number as negative
      * This approach works only if the numbers are positive.
      * Time Complexity: O(n)
      * Space Complexity: O(1)
@@ -132,5 +134,26 @@ public class FindDuplicate287 {
             fast = nums[fast];
         }
         return fast;
+    }
+
+    /**
+     * Approach 5: Sort the array
+     * In an unsorted array, duplicate elements may be scattered across the array.
+     * However, in a sorted array, duplicate numbers will be next to each other.
+     * <p>
+     * Time Complexity: O(nlogn)
+     * Space Complexity: O(logn)
+     *
+     * @param nums
+     * @return
+     */
+    public int findDuplicateApproach5(int[] nums) {
+        Arrays.sort(nums);
+        for (int i = 1; i < nums.length; i++) {
+            if (nums[i] == nums[i - 1])
+                return nums[i];
+        }
+
+        return -1;
     }
 }
