@@ -1,4 +1,4 @@
-package problems.array;
+package problems.array.easy;
 
 /**
  * <a href="https://leetcode.com/problems/missing-number/">Missing Number</a>
