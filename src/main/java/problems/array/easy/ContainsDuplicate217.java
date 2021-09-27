@@ -1,4 +1,4 @@
-package problems.array; /**
+package problems.array.easy; /**
  * <a href="https://leetcode.com/problems/contains-duplicate/">Contains Duplicate</a>
  * <b>Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.</b>
  * <p>
@@ -24,9 +24,7 @@ package problems.array; /**
  * -109 <= nums[i] <= 109
  */
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 public class ContainsDuplicate217 {
 
@@ -36,6 +34,7 @@ public class ContainsDuplicate217 {
         System.out.println("Using Approach 0: " + containsDuplicate.containsDuplicateApproach0(nums));
         System.out.println("Using Approach 1: " + containsDuplicate.containsDuplicateApproach1(nums));
         System.out.println("Using Approach 2: " + containsDuplicate.containsDuplicateApproach2(nums));
+        System.out.println("Using Approach 3: " + containsDuplicate.containsDuplicateApproach3(nums));
     }
 
     /**
@@ -49,7 +48,6 @@ public class ContainsDuplicate217 {
      * @return
      */
     public boolean containsDuplicateApproach0(int[] nums) {
-        Arrays.sort(nums);
         for (int i = 0; i < nums.length; i++) {
             for (int j = 0; j < nums.length; j++) {
                 if (nums[i] == nums[j]) {
@@ -78,6 +76,7 @@ public class ContainsDuplicate217 {
     }
 
     /**
+     * Approach 2: Using Map
      * Time Complexity: O(n); Space Complexity: O(n)
      * This can be slower for small inputs than Approach 1
      *
@@ -91,6 +90,24 @@ public class ContainsDuplicate217 {
                 return true;
             }
             map.put(nums[i], i);
+        }
+        return false;
+    }
+
+    /**
+     * Approach 3: Using Set
+     * Time Complexity: O(n); Space Complexity: O(n)
+     * This can be slower for small inputs than Approach 1
+     *
+     * @param nums
+     * @return
+     */
+    public boolean containsDuplicateApproach3(int[] nums) {
+        Set<Integer> set = new HashSet<Integer>();
+        for (int i = 0; i < nums.length; i++) {
+            if (!set.add(nums[i])) {
+                return true;
+            }
         }
         return false;
     }
