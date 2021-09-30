@@ -1,4 +1,4 @@
-package problems.array;
+package problems.array.easy;
 
 /**
  * <a href="https://leetcode.com/problems/best-time-to-buy-and-sell-stock/">Best Time to Buy and Sell Stock</a>
@@ -64,5 +64,50 @@ public class BuySellStock121 {
             }
         }
         return os;
+    }
+
+    /**
+     * Same as Approach 1 with MAth.max function
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitApproach2(int[] prices) {
+        int bestProfit = 0;
+        int n = prices.length;
+        int lsp = Integer.MAX_VALUE;
+        for (int i = 0; i < n; i++) {
+            lsp = Math.min(lsp, prices[i]);
+            bestProfit = Math.max(bestProfit, prices[i] - lsp);
+        }
+        return bestProfit;
+    }
+
+    /**
+     * Using PrefixMin and PostMax
+     * TC: O(N)
+     * SC: O(N)
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitApproach3(int[] prices) {
+        int bestProfit = 0;
+        int n = prices.length;
+        int maxPrice[] = new int[n];
+        maxPrice[n - 1] = prices[n - 1];
+        for (int i = n - 2; i >= 0; i--) {
+            maxPrice[i] = Math.max(maxPrice[i + 1], prices[i]);
+        }
+        int minPrice[] = new int[n];
+        minPrice[0] = prices[0];
+        for (int i = 1; i < n; i++) {
+            minPrice[i] = Math.min(minPrice[i - 1], prices[i]);
+        }
+
+        for (int i = 0; i < n; i++) {
+            bestProfit = Math.max(maxPrice[i] - minPrice[i], bestProfit);
+        }
+        return bestProfit;
     }
 }
