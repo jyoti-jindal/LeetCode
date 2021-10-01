@@ -44,6 +44,26 @@ public class BuySellStock121 {
     }
 
     /**
+     * Brute-force Approach
+     * TC: O(n^2)
+     * SC: O(1)
+     *
+     * @param prices
+     * @return
+     */
+    public int maxProfitApproach0(int prices[]) {
+        int maxprofit = 0;
+        for (int i = 0; i < prices.length - 1; i++) {
+            for (int j = i + 1; j < prices.length; j++) {
+                int profit = prices[j] - prices[i];
+                if (profit > maxprofit)
+                    maxprofit = profit;
+            }
+        }
+        return maxprofit;
+    }
+
+    /**
      * Approach 1: One Pass (find the smallest valley with following highest peak)
      * <a href="https://www.youtube.com/watch?v=4YjEHmw1MX0">Best Time to buy and sell stocks - One Transaction Allowed</a>
      * Time Complexity: O(n)
