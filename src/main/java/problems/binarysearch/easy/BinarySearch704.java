@@ -1,4 +1,4 @@
-import problems.binarysearch.easy;
+package problems.binarysearch.easy;
 
 /**
  * <a href="https://leetcode.com/problems/binary-search/">704. Binary Search</a>
@@ -29,7 +29,7 @@ import problems.binarysearch.easy;
  * nums is sorted in ascending order.
  */
 
-class BinarySearch704 {
+public class BinarySearch704 {
   
     public static void main(String[] args) {
         int nums[] = {-1, 0, 3, 5, 9, 12};
