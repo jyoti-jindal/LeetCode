@@ -58,6 +58,8 @@ public class FindDuplicateNumber287 {
 
     /**
      * Approach 1: Sort the array and compare consecutive elements
+     * In an unsorted array, duplicate elements may be scattered across the array.
+     * However, in a sorted array, duplicate numbers will be next to each other.
      * TC: O(nlogn + n)
      * SC: O(1)
      *
@@ -77,14 +79,13 @@ public class FindDuplicateNumber287 {
 
     /**
      * Approach 2: Sort the array and search using binary search
-     * TC: O(nlogn + logn)
+     * TC: O(nlogn)
      * SC: O(1)
      *
      * @param nums
      * @return
      */
     public int findDuplicate2(int[] nums) {
-        Arrays.sort(nums);
         int n = nums.length;
         int l = 1, r = n - 1;
         int duplicate = -1;
@@ -127,6 +128,7 @@ public class FindDuplicateNumber287 {
 
     /**
      * Approach 4: Use Floyd's Cycle Detection
+     * Works only if the elements are present are in 1 to N range
      * TC: O(n)
      * SC: O(1)
      *
@@ -147,5 +149,23 @@ public class FindDuplicateNumber287 {
             fast = nums[fast];
         }
         return fast;
+    }
+
+    /**
+     * Approach 5: If Array is mutable, mark the visiting number negative
+     * This approach works only if the numbers are positive.
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
+     *
+     * @param nums
+     * @return
+     */
+    public int findDuplicate5(int[] nums) {
+        for (int i = 0; i < nums.length; ++i) {
+            int val = Math.abs(nums[i]);
+            if (nums[val] < 0) return val;
+            nums[val] *= -1;
+        }
+        return 0;
     }
 }
