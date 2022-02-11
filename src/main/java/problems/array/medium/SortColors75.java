@@ -9,30 +9,30 @@ import java.util.Arrays;
  * We will use the integers 0, 1, and 2 to represent the color red, white, and blue, respectively.
  * You must solve this problem without using the library's sort function.
  * </b>
- *
+ * <p>
  * Example 1:
  * <p>
  * Input: nums = [2,0,2,1,1,0]
  * Output: [0,0,1,1,2,2]
- *
+ * <p>
  * Example 2:
  * Input: nums = [2,0,1]
  * Output: [0,1,2]
- *
+ * <p>
  * Example 3:
  * Input: nums = [0]
  * Output: [0]
- *
+ * <p>
  * Example 4:
  * Input: nums = [1]
  * Output: [1]
- *
+ * <p>
  * Constraints:
  * n == nums.length
  * 1 <= n <= 300
  * nums[i] is 0, 1, or 2.
- *
- *
+ * <p>
+ * <p>
  * Follow up: Could you come up with a one-pass algorithm using only constant extra space?
  */
 
@@ -124,10 +124,12 @@ public class SortColors75 {
     /**
      * Follow up: Could you come up with a one-pass algorithm using only constant extra space?
      * Approach 3: Two-pointer approach to attain one-pass algo without using extra space.
+     * Time Complexity: O(n)
+     * Space Complexity: O(1)
      *
      * @param nums
      */
-    public void sortColors(int[] nums) {
+    public void sortColorsApproach3(int[] nums) {
         int start = 0;
         int end = nums.length - 1;
         int i = 0;
